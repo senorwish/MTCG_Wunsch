@@ -31,16 +31,16 @@ namespace MTCGServer.Test
         }
 
         [Test]
-        public void TestGetElementFromName()
+        public void TestGetRegualElementFromName()
         {
             // Arrange
-            var card = new Card(Guid.NewGuid(), "Dragon", 5m);
+            var card = new Card(Guid.NewGuid(), "Ork", 5m);
 
             // Act
-            var element = card.getElementFromName(CardType.Dragon);
+            var element = card.getElementFromName(CardType.Ork);
 
             // Assert
-            Assert.AreEqual(Elemente.Fire, element);
+            Assert.AreEqual(Elemente.Normal, element);
         }
 
         [Test]
@@ -54,6 +54,66 @@ namespace MTCGServer.Test
 
             // Assert
             Assert.IsFalse(card.Fightable);
+        }
+        [Test]
+        public void TestGetFireElementFromName()
+        {
+            // Arrange
+            var card = new Card(Guid.NewGuid(), "Dragon", 5m);
+
+            // Act
+            var element = card.getElementFromName(CardType.Dragon);
+
+            // Assert
+            Assert.AreEqual(Elemente.Fire, element);
+        }
+        [Test]
+        public void TestGetWaterElementFromName()
+        {
+            // Arrange
+            var card = new Card(Guid.NewGuid(), "Kraken", 5m);
+
+            // Act
+            var element = card.getElementFromName(CardType.Kraken);
+
+            // Assert
+            Assert.AreEqual(Elemente.Water, element);
+        }
+        [Test]
+        public void TestGetElementFromDragon()
+        {
+            // Arrange
+            var card = new Card(Guid.NewGuid(), "Dragon", 5m);
+
+            // Act
+            var element = card.getElementFromName(CardType.Dragon);
+
+            // Assert
+            Assert.AreEqual(Elemente.Fire, element);
+        }
+        [Test]
+        public void TestGetElementFromTroll()
+        {
+            // Arrange
+            var card = new Card(Guid.NewGuid(), "FireTroll", 5m);
+
+            // Act
+            var element = card.getElementFromName(CardType.FireTroll);
+
+            // Assert
+            Assert.AreEqual(Elemente.Fire, element);
+        }
+        [Test]
+        public void TestGetElementFromElf()
+        {
+            // Arrange
+            var card = new Card(Guid.NewGuid(), "WaterElf", 5m);
+
+            // Act
+            var element = card.getElementFromName(CardType.WaterElf);
+
+            // Assert
+            Assert.AreEqual(Elemente.Water, element);
         }
     }
     
